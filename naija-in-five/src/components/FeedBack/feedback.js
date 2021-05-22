@@ -13,7 +13,7 @@ function FeedBack(props) {
 							<div className="mu-heading-area">
 								<h2 className="mu-heading-title">Drop Us A Message</h2>
 								<span className="mu-header-dot"></span>
-								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+								<p>Send us a message. What do you not like, what do you like.</p>
 							</div>
 							<div className="mu-contact-content">
 

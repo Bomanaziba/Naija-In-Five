@@ -54,6 +54,12 @@ Author URI : http://www.markups.io/
 	background-color: #3fc35f;
 }
 
+#mu-video-review:before  {
+	opacity: 0.5;
+}
+
+
+
 .mu-contact-form .form-control:focus,
 .mu-testimonial-slide .slick-dots li button:hover,
 .mu-testimonial-slide .slick-dots li button:focus,

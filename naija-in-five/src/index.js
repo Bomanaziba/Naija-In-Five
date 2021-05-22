@@ -34,13 +34,18 @@ const SOCIALMEDIA = [
   { id: 2, name: 'Facebook', url: '' },
   { id: 3, name: 'Twitter', url: '' },
   { id: 4, name: 'Youtube', url: '' }
-]
+];
+
+const HOST = [
+  { id: 1, name: 'B. Ogoni', describe: '', image: './images/bogoni.jpeg', title: 'Host'},
+  { id: 2, name: 'F. Ataisi', describe: '', image: './images/fatasi.jpeg', title: 'Co-Host'}
+];
                     
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App socialmedia={ SOCIALMEDIA } newssummary={ NEWSSUMMARY } newspaper = { NEWSPAPER } />
+    <App socialmedia={ SOCIALMEDIA } newssummary={ NEWSSUMMARY } newspaper = { NEWSPAPER } host={ HOST } />
   </React.StrictMode>,
   document.getElementById('root')
 );

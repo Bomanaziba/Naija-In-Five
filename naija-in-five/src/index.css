@@ -1317,11 +1317,7 @@ button:focus {
 
 
 @media (max-width: 320px){
-	
-	
-	
-	
-	
+
 }
 
 
@@ -1351,10 +1347,10 @@ button:focus {
 /* AUDIO STYLE */
 /*--------------------*/
 
-.audio-hero-left {
-	display: inline;
-	float: left;
-	width: 100%;
-	color: #fff;
-	display: block;
+.audio-hero-anchor,
+.audio-hero-anchor :hover,
+.audio-hero-anchor :focus
+{
+	color: #fff !important;
 }
+
