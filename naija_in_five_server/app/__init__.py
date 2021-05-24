@@ -19,4 +19,8 @@ def create_app(app_config='development'):
 
     app.register_blueprint(todaysnews, url_prefix='/api/v1/todaysnews')
 
+    from app.feedback.views import feedback
+
+    app.register_blueprint(feedback, url_prefix='/api/v1/feedback')
+
     return app
