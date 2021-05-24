@@ -42,7 +42,6 @@ class feedback_reposiotory:
                 "message": message
             }
 
-
     def get_list():
         data = {}
         try:
@@ -66,7 +65,6 @@ class feedback_reposiotory:
                 "message": message
             }
     
-
     def get(id: int):
 
         if id <= 0:

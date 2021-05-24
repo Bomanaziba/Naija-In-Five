@@ -1,7 +1,6 @@
 from app.feedback.feedback import feedback_reposiotory
 from flask import Blueprint, request, jsonify
 
-
 feedback  = Blueprint('feedback', __name__)
 
 @feedback.route('/', methods=['GET'])
