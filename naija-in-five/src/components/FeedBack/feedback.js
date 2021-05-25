@@ -27,6 +27,9 @@ function FeedBack(props) {
 		try {
 		   await add({ name, email, message });
 		   alert("feedback sent");
+		   setName("")
+		   setEmail("")
+		   setMessage("")
 		} catch (error) {
 			console.log(error);
 			alert("feedback not sent")
