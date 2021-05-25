@@ -39,7 +39,6 @@ function Listen(props) {
 
                             <div className="mu-video-review-content">
                                 <AudioPlayer
-                                    autoPlay
                                     src={ audioUrl }
                                     header={ podCastTitle.slice(9, podCastTitle.length-3) }
                                 />

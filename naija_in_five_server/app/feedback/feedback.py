@@ -7,8 +7,6 @@ class feedback_reposiotory:
 
     def add(feedback: feed_back):
 
-        feedback = feed_back(id = 0, name = feedback['name'], email = feedback['email'], message = feedback['message'], datecreated = datetime.datetime.now())
-
         message = ""
         status = 0
         
@@ -21,10 +19,9 @@ class feedback_reposiotory:
              
 
         try:
-
             con = db.connect("naijainfive.db")
             cur = con.cursor()
-            cur.execute("INSERT INTO Feedback (name, email, message, datecreated) VALUES (?,?,?,?)", (feedback.name, feedback.email, feedback.message, feedback.datecreated))
+            cur.execute("INSERT INTO Feedback (name, email, message, datecreated) VALUES (?,?,?,?)", (feedback["name"], feedback["email"], feedback["message"], datetime.datetime.now()))
             con.commit()
             status = 200
             message="Successful"
@@ -43,12 +40,25 @@ class feedback_reposiotory:
             }
 
     def get_list():
-        data = {}
+        result = []
         try:
             con = db.connect("naijainfive.db")
             cur = con.cursor()
             cur.execute("SELECT * FROM Feedback")
             data = cur.fetchall()
+
+            for item in data:
+
+                obj = {
+                    "id": item[0],
+                    "name": item[1],
+                    "email": item[2],
+                    "message": item[3],
+                    "datecreated": item[4]
+                }
+
+                result.append(obj)
+            
             status = 200
             message="Successful"
         
@@ -60,7 +70,7 @@ class feedback_reposiotory:
         finally: 
             con.close()
             return {
-                "data": data,
+                "data": result,
                 "status": status,
                 "message": message
             }
@@ -80,6 +90,15 @@ class feedback_reposiotory:
             query = "SELECT * FROM Feedback Where Id = "+str(id)
             cur.execute(query)
             data = cur.fetchone()
+
+            result = {
+                "id": data[0],
+                "name": data[1],
+                "email": data[2],
+                "message": data[3],
+                "datecreated": data[4]
+            }
+                
             status = 200
             message="Successful"
     
@@ -91,7 +110,7 @@ class feedback_reposiotory:
         finally: 
             con.close()
             return {
-                "data": data,
+                "data": result,
                 "status": status,
                 "message": message
             }

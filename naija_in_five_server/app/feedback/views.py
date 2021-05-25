@@ -8,7 +8,7 @@ def index():
 
     response = feedback_reposiotory.get_list()
 
-    return jsonify(response)
+    return jsonify(response), response["status"]
 
 @feedback.route('/get', methods=['GET'])
 def get():
@@ -16,7 +16,7 @@ def get():
     id = int(request.args.get('id'))
     response = feedback_reposiotory.get(id)
 
-    return jsonify(response)
+    return jsonify(response), response["status"]
 
 @feedback.route('/add', methods=['POST'])
 def add():
@@ -24,4 +24,4 @@ def add():
     feedback = request.get_json()
     response = feedback_reposiotory.add(feedback)
 
-    return jsonify(response)
+    return jsonify(response), response["status"]

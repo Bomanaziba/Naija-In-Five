@@ -1,7 +1,38 @@
-import React from 'react'
-
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { add } from '../../apis/feedbackapis'
+ 
 
 function FeedBack(props) {
+
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [message, setMessage] = useState('');
+	const { handleSubmit } = useForm();
+
+
+	function handleChangeName(e) {
+		setName(e.target.value);
+	  }
+	
+	function handleChangeEmail(e) {
+		setEmail(e.target.value);
+	  }
+
+	function handleChangeMessage(e) {
+		setMessage(e.target.value);
+	  }
+	
+	const onSubmit = async data => {
+		try {
+		   await add({ name, email, message });
+		   alert("feedback sent");
+		} catch (error) {
+			console.log(error);
+			alert("feedback not sent")
+		}
+	}
+	
     return (
 
         <section id="mu-contact">
@@ -18,15 +49,15 @@ function FeedBack(props) {
 							<div className="mu-contact-content">
 
 								<div id="form-messages"></div>
-								<form id="ajax-contact" method="post" action="mailer.php" className="mu-contact-form">
+								<form id="ajax-contact" onSubmit={handleSubmit(onSubmit)} className="mu-contact-form">
 									<div className="form-group">                
-										<input type="text" className="form-control" placeholder="Name" id="name" name="name" required />
+										<input type="text" value={name} className="form-control" placeholder="Name" id="name" onChange={handleChangeName} name="name" required />
 									</div>
 									<div className="form-group">                
-										<input type="email" className="form-control" placeholder="Enter Email" id="email" name="email" required />
+										<input type="email" value={email} className="form-control" placeholder="Enter Email" id="email" onChange={handleChangeEmail} name="email" required />
 									</div>              
 									<div className="form-group">
-										<textarea className="form-control" placeholder="Message" id="message" name="message" required></textarea>
+										<textarea className="form-control" value={message} placeholder="Message" id="message" onChange={handleChangeMessage} name="message" required></textarea>
 									</div>
 									<button type="submit" className="mu-send-msg-btn"><span>SUBMIT</span></button>
 						        </form>
