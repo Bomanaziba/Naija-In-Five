@@ -13,9 +13,9 @@ def create_app(app_config='development'):
 
     app.register_blueprint(main, url_prefix='/api/v1/main')
 
-    from app.newsdesk.views import newsdesk
+    from app.newspaper.views import newspaper
 
-    app.register_blueprint(newsdesk, url_prefix='/api/v1/newsdesk')
+    app.register_blueprint(newspaper, url_prefix='/api/v1/newspaper')
 
     from app.todaysnews.views import todaysnews
 
